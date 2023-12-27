@@ -1,4 +1,4 @@
-import { computed, makeObservable, observable } from "mobx";
+import { computed, makeObservable, observable, action,autorun } from "mobx";
 
 export class GameState {
   wordBank = [
@@ -28,8 +28,14 @@ export class GameState {
       addPlayer: action,
       deletePlayer: action,
       generateWord: action,
-      guessLetter: action
+      guessLetter: action,
+      report: computed
     });
+    autorun(() => console.log(this.report))
+  }
+
+  get report() {
+    return JSON.stringify(this.players);
   }
 
   addPlayer(name, picturePath) {
