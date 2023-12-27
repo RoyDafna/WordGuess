@@ -15,7 +15,9 @@ const AddPlayer = observer(({ game }) => {
 
   return (
     <>
-      <div>
+      <div
+        style={{ border: 3, borderStyle: "solid", maxWidth: 320, padding: 5 }}
+      >
         <img height={200} src={imageSrc} />
         <br />
         <input
@@ -32,7 +34,18 @@ const AddPlayer = observer(({ game }) => {
         >
           New Picture
         </button>
-        <button onClick={() => game.addPlayer(playerName, imageSrc)}>Save</button>
+        <button
+          onClick={() => {
+            game.addPlayer(playerName, imageSrc);
+            imgIndexRef.current = 0;
+            setPlayerName("");
+            setImageSrc(imageLinks.at(imgIndexRef));
+            return 0;
+          }}
+          disabled={game.players.length >= 4}
+        >
+          Save
+        </button>
       </div>
     </>
   );
