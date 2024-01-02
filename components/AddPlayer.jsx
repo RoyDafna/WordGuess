@@ -16,6 +16,7 @@ const AddPlayer = observer(({ game }) => {
   return (
     <>
       <div
+        hidden={game.gameStarted && !game.gameOver}
         style={{ border: 3, borderStyle: "solid", maxWidth: 320, padding: 5 }}
       >
         <img height={200} src={imageSrc} />
@@ -42,7 +43,7 @@ const AddPlayer = observer(({ game }) => {
             setImageSrc(imageLinks.at(imgIndexRef));
             return 0;
           }}
-          disabled={game.players.length >= 4}
+          disabled={game.players.length >= 5}
         >
           Save
         </button>
