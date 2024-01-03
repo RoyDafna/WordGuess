@@ -8,6 +8,7 @@ const PlayersList = observer(({ game }) => {
       {game.players.map((player, playerIndex) => (
         <div style={{ display: "inline-block" }}>
           <PlayerCard
+            key={playerIndex}
             game={game}
             playerIndex={playerIndex}
             player={player}

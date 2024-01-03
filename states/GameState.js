@@ -47,6 +47,7 @@ export class GameState {
   ];
   gameStarted = false;
   gameOver = false;
+  turnInterval = 1000;
 
   constructor() {
     makeObservable(this, {
@@ -56,6 +57,8 @@ export class GameState {
       revealedWord: observable,
       gameStarted: observable,
       gameOver: observable,
+      turnInterval: observable,
+      setInterval: action,
       addPlayer: action,
       deletePlayer: action,
       generateWord: action,
@@ -82,6 +85,10 @@ export class GameState {
     } else {
       return "";
     }
+  }
+
+  setInterval(newTurnInterval) {
+    this.turnInterval = newTurnInterval;
   }
 
   get getLetterBank() {

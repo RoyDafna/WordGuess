@@ -1,3 +1,4 @@
+import { useEffect, useRef, useState } from "react";
 import AddPlayer from "../components/AddPlayer";
 import LetterBank from "../components/LetterBank";
 import PlayTurnButton from "../components/PlayTurnButton";
@@ -7,20 +8,23 @@ import RevealedWord from "../components/RevealedWord";
 import StartButton from "../components/StartButton";
 import WinnerName from "../components/WinnerName";
 import { GameState } from "../states/GameState";
+import TurnTimer from "../components/TurnTimer";
+
 export default function App() {
   const game = new GameState();
+
   return (
     <>
-      <WinnerName game={game}></WinnerName> <br /> <br />
-      <AddPlayer game={game}></AddPlayer> <br />
-      <PlayTurnButton game={game}></PlayTurnButton>
+      <WinnerName game={game} /> <br /> <br />
+      <AddPlayer game={game} /> <br />
+      <TurnTimer game={game} />
       <StartButton game={game}></StartButton>
       <br />
       <br />
-      <LetterBank game={game}></LetterBank>
+      <LetterBank game={game} />
       <br />
-      <RevealedWord game={game}></RevealedWord>
-      <PlayersList game={game}></PlayersList>
+      <RevealedWord game={game} />
+      <PlayersList game={game} />
     </>
   );
 }
