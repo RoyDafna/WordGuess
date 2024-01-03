@@ -17,7 +17,7 @@ const AddPlayer = observer(({ game }) => {
     <>
       <div
         hidden={game.gameStarted && !game.gameOver}
-        style={{ border: 3, borderStyle: "solid", maxWidth: 320, padding: 5 }}
+        style={{ border: 3, borderStyle: "solid", maxWidth: 330, padding: 5 }}
       >
         <img height={200} src={imageSrc} />
         <br />

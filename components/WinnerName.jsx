@@ -3,11 +3,7 @@ import { observer } from "mobx-react-lite";
 const WinnerName = observer(({ game }) => {
   return (
     <>
-      <input
-        hidden={!game.gameOver}
-        disabled={true}
-        value={"WINNER: " + game.getWinner}
-      />
+      <h2 hidden={!game.gameOver} style={{fontFamily: "Arial"}}>WINNER: {game.getWinner}</h2>
     </>
   );
 });

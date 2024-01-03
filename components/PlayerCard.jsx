@@ -3,13 +3,18 @@ import { useRef, useState } from "react";
 
 const PlayerCard = observer(({ game, playerIndex, player }) => {
   return (
-    <div>
+    <div style={{ border: "solid", borderWidth:3, borderColor: (game.gameOver ? (player.name == game.getWinner ? "green" : "red") : "black") , padding: 3 }}>
       <img src={player.picturePath} height={150} />
       <br />
-      <input disabled={true} value={player.name} />
-      <button disabled={!game.gameOver && game.gameStarted} onClick={() => game.deletePlayer(playerIndex)}>Delete</button>
+      <p style={{ fontFamily: "Arial" }}>Name: {player.name}</p>
+      <p style={{fontFamily: "Arial"}}>Points: {player.points}</p>
+      <button
+        hidden={!game.gameOver && game.gameStarted}
+        onClick={() => game.deletePlayer(playerIndex)}
+      >
+        Delete
+      </button>
       <br />
-      <input disabled={true} value={"Points: " + player.points} />
     </div>
   );
 });

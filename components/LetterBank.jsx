@@ -3,12 +3,7 @@ import { observer } from "mobx-react-lite";
 const LetterBank = observer(({ game }) => {
   return (
     <>
-      <input
-        disabled={true}
-        hidden={!game.gameStarted}
-        value={game.getLetterBank}
-        style={{width: 420}}
-      />
+      <h4 hidden={!game.gameStarted} style={{fontFamily:"Arial"}}>LETTERS: {game.getLetterBank}</h4>
     </>
   );
 });

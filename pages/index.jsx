@@ -18,11 +18,8 @@ export default function App() {
       <WinnerName game={game} /> <br /> <br />
       <AddPlayer game={game} /> <br />
       <TurnTimer game={game} />
-      <StartButton game={game}></StartButton>
-      <br />
-      <br />
+      <StartButton game={game} />
       <LetterBank game={game} />
-      <br />
       <RevealedWord game={game} />
       <PlayersList game={game} />
     </>

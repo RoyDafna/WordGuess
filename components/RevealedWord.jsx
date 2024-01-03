@@ -3,11 +3,13 @@ import { observer } from "mobx-react-lite";
 const RevealedWord = observer(({ game }) => {
   return (
     <>
-      <input
-        disabled={true}
+      <h3
         hidden={!game.gameStarted}
         value={game.revealedWord}
-      />
+        style={{ fontFamily: "Arial" }}
+      >
+        WORD: {game.revealedWord}
+      </h3>
     </>
   );
 });
